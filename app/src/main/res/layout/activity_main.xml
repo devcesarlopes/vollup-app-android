@@ -69,7 +69,7 @@
                     app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toStartOf="@+id/saldoAtual"
                     app:layout_constraintTop_toTopOf="@+id/saldo"
-                    app:layout_constraintVertical_bias="0.128" />
+                    app:layout_constraintVertical_bias="0.07" />
 
                 <TextView
                     android:id="@+id/saldo"
@@ -78,6 +78,7 @@
                     android:layout_marginStart="5dp"
                     android:layout_toEndOf="@+id/rs"
                     android:text="@string/number"
+                    android:gravity="bottom"
                     android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                     android:textColor="@color/white"
                     android:textSize="30sp"

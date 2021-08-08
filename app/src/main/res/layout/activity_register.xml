@@ -112,14 +112,14 @@
                     app:layout_constraintVertical_bias="0.0" />
 
                 <EditText
-                    android:id="@+id/confirmPassword"
+                    android:id="@+id/balance"
                     android:layout_width="230dp"
                     android:layout_height="65dp"
                     android:layout_gravity="center_horizontal"
-                    android:drawableLeft="@drawable/ic_baseline_lock_24"
+                    android:drawableLeft="@drawable/ic_baseline_attach_money_24"
                     android:ems="10"
-                    android:hint="Confirm Password"
-                    android:inputType="textPassword"
+                    android:hint="Saldo"
+                    android:inputType="numberDecimal"
                     android:textColor="#000000"
                     android:textColorHint="#000000"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -139,7 +139,7 @@
                     app:cardElevation="6dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/confirmPassword">
+                    app:layout_constraintTop_toBottomOf="@+id/balance">
 
                     <TextView
                         android:id="@+id/textView5"
@@ -159,7 +159,7 @@
 
 
                 <TextView
-                    android:id="@+id/textView2"
+                    android:id="@+id/login"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -203,6 +203,7 @@
             app:layout_constraintTop_toTopOf="parent"
             android:contentDescription="@string/logo" />
         <ProgressBar
+            android:id="@+id/progressBar"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_gravity="center_horizontal"

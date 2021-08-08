@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "922254339926",
+    "project_id": "vollup-app-android",
+    "storage_bucket": "vollup-app-android.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:922254339926:android:42cde3583de36bbc0430f7",
+        "android_client_info": {
+          "package_name": "com.example.vollup_app_android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "922254339926-j5f5q4cobn52unodu8ivgk135ujm7rr6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB87aJJyB2nNAu-RoXynWLHyq8BbE8xWJc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "922254339926-j5f5q4cobn52unodu8ivgk135ujm7rr6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
