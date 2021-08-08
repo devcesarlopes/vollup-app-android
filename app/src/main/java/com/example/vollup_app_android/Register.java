@@ -4,29 +4,47 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.text.Editable;
 import android.text.Selection;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+import java.util.HashMap;
+import java.util.Objects;
 
 public class Register extends AppCompatActivity {
 
     EditText name, email, password, balance;
+    HashMap<String,String> firebase = new HashMap<>();
     ProgressBar progressBar;
     Button register;
     FirebaseAuth fAuth;
     TextView login;
     private long mLastClickTime = 0;
-    String nick, mail, pass, bal;
+    String nick, mail, pass, bal, userId;
+    Long num;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,35 +63,27 @@ public class Register extends AppCompatActivity {
         //Hide the progressBar
         progressBar.setVisibility(View.INVISIBLE);
 
-        //TextWatcher to keep money decimal places in balance.
+        //add textwatcher for decimal.
         balance.addTextChangedListener(new TextWatcher() {
             public void afterTextChanged(Editable s) {}
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
 
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if(!s.toString().matches("^\\$(\\d{1,3}(\\,\\d{3})*|(\\d+))(\\.\\d{2})?$"))
-                {
-                    String userInput= ""+s.toString().replaceAll("[^\\d]", "");
-                    StringBuilder cashAmountBuilder = new StringBuilder(userInput);
-
-                    while (cashAmountBuilder.length() > 3 && cashAmountBuilder.charAt(0) == '0') {
-                        cashAmountBuilder.deleteCharAt(0);
+                if (s.toString().contains(".")){
+                    Log.i("regex.","true");
+                    int num = s.toString().indexOf(".");
+                    Log.i("num.",""+num);
+                    if(s.toString().length()==(num+4)){
+                        Log.i("ifif.","true");
+                        balance.setText(s.subSequence(0, s.length()-1));
+                        balance.setSelection(balance.getText().length());
                     }
-                    while (cashAmountBuilder.length() < 3) {
-                        cashAmountBuilder.insert(0, '0');
-                    }
-                    cashAmountBuilder.insert(cashAmountBuilder.length()-2, '.');
-                    cashAmountBuilder.insert(0, '$');
-
-                    balance.setText(cashAmountBuilder.toString());
-                    // keeps the cursor always to the right
-                    Selection.setSelection(balance.getText(), cashAmountBuilder.toString().length());
                 }
             }
         });
 
         //getting firebase authenticator instance.
-        //fAuth = FirebaseAuth.getInstance();
+        fAuth = FirebaseAuth.getInstance();
 
         //Defining go back to login button action.
         login.setOnClickListener(v -> {
@@ -96,12 +106,17 @@ public class Register extends AppCompatActivity {
             }
             mLastClickTime = SystemClock.elapsedRealtime();
 
-            //Savind info in variables for authentication.
+            //Saving info in variables for authentication.
 
             nick = name.getText().toString().trim();
             mail = email.getText().toString().trim();
             pass = password.getText().toString().trim();
-            bal = balance.getText().toString().trim();
+            num = Long.parseLong(balance.getText().toString().replace(".", ""));
+            if(balance.getText().toString().contains(".")) {
+                num = num / 100;
+            }
+            DecimalFormat format = new DecimalFormat("###,###,###.##");
+            bal = format.format(num);
 
             //Defining register conditions.
             if (name.getText().toString().trim().isEmpty()) {
@@ -114,43 +129,36 @@ public class Register extends AppCompatActivity {
                 balance.setError("Fullfuill the balance");
             }
             //If all the form conditions are ok, then we must authenticate the user.
-            /*
             register.setEnabled (false);
             progressBar.setVisibility(View.VISIBLE);
-            //Criando usuário no Firebase.
-            fAuth.createUserWithEmailAndPassword(email,rpassword).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                @Override
-                public void onComplete(@NonNull Task<AuthResult> task) {
-                    if(task.isSuccessful()){
-                        //Se criado com sucesso
-                        FirebaseUser User = FirebaseAuth.getInstance().getCurrentUser();
-                        assert User != null;
-                        //Retornar ID de usuário
-                        UserId = User.getUid();
-                        //Salvar informações de usuário no RealTime Database.
-                        DatabaseReference reff = FirebaseDatabase.getInstance().getReference().child("users").child(UserId);
-                        reff.child("nome").setValue(nome);
-                        reff.child("email").setValue(email);
-                        reff.child("phone").setValue(phone);
-                        reff.child("cargo").setValue(cargo);
-                        reff.child("usuario").setValue ("Usuario");
-                        if(ImageCheck){
-                            //SavePATHOnSharedPreferences(getApplicationContext(), PATH);
-                        }
-                        Toast.makeText(activity_register.this, "Usuário Criado com Sucesso!", Toast.LENGTH_SHORT).show();
-                        progressBar.setVisibility(View.INVISIBLE);
-                        mRegisterBtn.setEnabled (true);
+            //Creating user on Firebase.
+            fAuth.createUserWithEmailAndPassword(mail,pass).addOnCompleteListener(task -> {
+                if(task.isSuccessful()){
+                    //if user created successfully.
+                    FirebaseUser User = FirebaseAuth.getInstance().getCurrentUser();
+                    assert User != null;
+                    //Return User ID.
+                    userId = User.getUid();
+                    //Save user Info on RealTime Database.
+                    DatabaseReference reff = FirebaseDatabase.getInstance("https://vollup-app-android-default-rtdb.firebaseio.com/").getReference().child(userId);
+                    firebase.put("name", nick);
+                    firebase.put("email", mail);
+                    firebase.put("balance",bal);
+                    reff.setValue(firebase).addOnCompleteListener(task1 -> {
+                        Toast.makeText(getApplicationContext(), "User created successfully!", Toast.LENGTH_LONG).show();
                         finish();
-                    }else{
-                        //Caso ocorra erro ao criar usuário
-                        Toast.makeText(activity_register.this, "Error!" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                    }).addOnFailureListener(e -> {
+                        Toast.makeText(getApplicationContext(), "Failure to create User!", Toast.LENGTH_LONG).show();
                         progressBar.setVisibility(View.INVISIBLE);
-                        mRegisterBtn.setEnabled (true);
-                    }
+                        register.setEnabled (true);
+                    });
+                }else{
+                    //Caso ocorra erro ao criar usuário
+                    Toast.makeText(getApplicationContext(), "Error!" + Objects.requireNonNull(task.getException()).toString(), Toast.LENGTH_SHORT).show();
+                    progressBar.setVisibility(View.INVISIBLE);
+                    register.setEnabled (true);
                 }
             });
-        });
-    }*/
         });
     }
 }

@@ -16,5 +16,6 @@
     <string name="top_right">Carregar\ncarteira</string>
     <string name="bottom_left">Histórico\nde Pagamentos</string>
     <string name="bottom_right">Fazer\ntransferência</string>
+    <string name="firebaseUrl">https://vollup-app-android-default-rtdb.firebaseio.com/</string>
 
 </resources>
