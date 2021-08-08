@@ -45,6 +45,7 @@ With that in mind, the work-flow is going to be:
 2. Install ```Firebase``` and it's features to the project.
 3. back-end
 4. Testing
+5. Insert app in Google Play.
 
 ## Front End.
 - During front creation, it's important to keep in mind that there are many different phones, with different sizes, so it's really important to make a responsible layout. Nothing worse than floating elements to spoil the user experience.
@@ -91,5 +92,5 @@ Durign it's programming we are going to:
 3. Get and display data from ***Firebase Realtime Database***.
 
 ## Congratulations
-following these steps I developed a basic system app. It was a great experience and surely helped with my Android Development skills.
+Following these steps I developed a basic system app. It was a great experience and surely helped with my Android Development skills.
 It was a great honor !
