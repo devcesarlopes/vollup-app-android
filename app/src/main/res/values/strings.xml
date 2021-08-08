@@ -7,4 +7,8 @@
     <string name="password">Password</string>
     <string name="loginButton">Login</string>
     <string name="registerText">Não tem conta? Registre-se Aqui!</string>
+    <string name="saldo">Saldo atual</string>
+    <string name="rs">R$</string>
+    <string name="number">8.888.888.88</string>
+    <string name="textoUser">Olá, ##NOME##\nQual sua próxima operação?</string>
 </resources>
