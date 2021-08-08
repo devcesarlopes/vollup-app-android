@@ -40,11 +40,17 @@ I personally prefer always start from front-end. From my experience during my wo
 In this project we already have the app design that contains 3 screens, ```login```, ```register account``` and ```page```.
 
 With that in mind, the work-flow is going to be:
-1. login and register front-end
-2. page front-end
-3. Install Firebase and it's features to the project.
-4. login and register back-end
-5. page back-end
-6. Testing
 
-## Login Screen.
+1. front-end (login, register and page)
+2. Install Firebase and it's features to the project.
+3. back-end
+4. Testing
+
+## Front End.
+- During front creation, it's important to keep in mind that there are many different phones, with different sizes, so it's really important to make a responsible layout. Nothing worse than floating elements to spoil the user experience.
+- Make sure that everything the design has requested is in the layout.
+- Make sure everything is in place.
+- Avoid using absolute meajures, it's much more cleaner to use Relative Layouts.
+
+### Login
+This is the resulted layout:
