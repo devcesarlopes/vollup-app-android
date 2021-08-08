@@ -1,4 +1,6 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -15,7 +17,7 @@
             android:id="@+id/head"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight=".35"
+            android:layout_weight=".25"
             android:orientation="vertical"
             android:background="@drawable/top_background"
             app:layout_constraintEnd_toEndOf="parent"
@@ -27,7 +29,7 @@
                 android:layout_width="200dp"
                 android:layout_height="50dp"
                 android:layout_marginStart="40dp"
-                android:layout_marginTop="110dp"
+                android:layout_marginTop="60dp"
                 android:src="@drawable/company_logo"
                 android:contentDescription="@string/logo" />
 
@@ -35,7 +37,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="40dp"
-                android:text="@string/login"
+                android:text="@string/register"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                 android:textColor="@color/white"
                 android:textSize="25sp"
@@ -46,7 +48,7 @@
             android:id="@+id/body"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight=".5"
+            android:layout_weight=".6"
             android:orientation="vertical"
             android:background="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
@@ -56,84 +58,102 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
+
                 <EditText
-                    android:id="@+id/email"
+                    android:id="@+id/name"
                     android:layout_width="230dp"
                     android:layout_height="65dp"
-                    android:drawableStart="@drawable/ic_baseline_email_24"
+                    android:layout_gravity="center_horizontal"
+                    android:drawableLeft="@drawable/ic_baseline_message_24"
                     android:ems="10"
-                    android:hint="@string/email"
-                    android:inputType="textEmailAddress"
+                    android:hint="Nome Completo"
+                    android:inputType="textPersonName"
                     android:textColor="#000000"
                     android:textColorHint="#000000"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.1"
-                    android:autofillHints="" />
+                    app:layout_constraintVertical_bias="0.172" />
+
+                <EditText
+                    android:id="@+id/email"
+                    android:layout_width="230dp"
+                    android:layout_height="65dp"
+                    android:layout_gravity="center_horizontal"
+                    android:drawableLeft="@drawable/ic_baseline_email_24"
+                    android:ems="10"
+                    android:hint="E-mail"
+                    android:inputType="textEmailAddress"
+                    android:textColor="#000000"
+                    android:textColorHint="#000000"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/name"
+                    app:layout_constraintVertical_bias="0.0" />
 
                 <EditText
                     android:id="@+id/password"
                     android:layout_width="230dp"
                     android:layout_height="65dp"
-                    android:drawableStart="@drawable/ic_baseline_lock_24"
+                    android:layout_gravity="center_horizontal"
+                    android:drawableLeft="@drawable/ic_baseline_lock_24"
                     android:ems="10"
-                    android:hint="@string/password"
+                    android:hint="Password"
                     android:inputType="textPassword"
                     android:textColor="#000000"
                     android:textColorHint="#000000"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.497"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/email"
-                    app:layout_constraintVertical_bias="0.058"
-                    android:autofillHints="" />
+                    app:layout_constraintVertical_bias="0.0" />
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/loginButton"
+                    android:id="@+id/register"
                     android:layout_width="280dp"
                     android:layout_height="50dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
                     app:cardBackgroundColor="#06bd59"
                     app:cardCornerRadius="35dp"
                     app:cardElevation="6dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/password"
-                    app:layout_constraintVertical_bias="0.3">
+                    app:layout_constraintTop_toBottomOf="@+id/password">
 
                     <TextView
-                        android:id="@+id/loginText"
+                        android:id="@+id/textView5"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
-                        android:text="@string/loginButton"
+                        android:text="Registrar"
                         android:textColor="#ffffff"
                         android:textSize="18sp" />
 
                     <Button
-                        android:id="@+id/botao"
+                        android:id="@+id/button"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="#0000ffff"
-                        android:textSize="11sp" />
-
+                        android:background="#0000ffff" />
                 </androidx.cardview.widget.CardView>
 
+
                 <TextView
-                    android:id="@+id/register"
+                    android:id="@+id/textView2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/registerText"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:text="Já possui conta? Faça o Login."
+                    android:textColor="#000000"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.498"
+                    app:layout_constraintHorizontal_bias="0.497"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/loginButton"
-                    app:layout_constraintVertical_bias="0.083" />
-
+                    app:layout_constraintTop_toBottomOf="@+id/register"
+                    app:layout_constraintVertical_bias="0.0" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
 
