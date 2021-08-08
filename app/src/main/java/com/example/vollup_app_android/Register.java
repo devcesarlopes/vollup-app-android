@@ -106,23 +106,27 @@ public class Register extends AppCompatActivity {
             }
             mLastClickTime = SystemClock.elapsedRealtime();
 
-            //Saving info in variables for authentication.
+            //Defining register conditions.
+            if (name.getText().toString().trim().isEmpty()) {
+                name.setError("Fill in your name!");
+                return;
+            } else if (email.getText().toString().trim().isEmpty()) {
+                email.setError("Fill in your Email!");
+                return;
+            } else if (password.getText().toString().trim().isEmpty()) {
+                password.setError("Fill in your password!");
+                return;
+            } else if (balance.getText().toString().trim().isEmpty()) {
+                balance.setError("Fullfuill the balance");
+                return;
+            }
 
+            //Saving info in variables for authentication.
             nick = name.getText().toString().trim();
             mail = email.getText().toString().trim();
             pass = password.getText().toString().trim();
             bal = formatDecimal(balance.getText().toString());
 
-            //Defining register conditions.
-            if (name.getText().toString().trim().isEmpty()) {
-                name.setError("Fill in your name!");
-            } else if (email.getText().toString().trim().isEmpty()) {
-                email.setError("Fill in your Email!");
-            } else if (password.getText().toString().trim().isEmpty()) {
-                password.setError("Fill in your password!");
-            } else if (balance.getText().toString().trim().isEmpty()) {
-                balance.setError("Fullfuill the balance");
-            }
             //If all the form conditions are ok, then we must authenticate the user.
             register.setEnabled (false);
             progressBar.setVisibility(View.VISIBLE);

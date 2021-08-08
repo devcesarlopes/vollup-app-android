@@ -75,8 +75,10 @@ public class Login extends AppCompatActivity {
             //Defining login conditions.
             if (email.getText().toString().trim().isEmpty()) {
                 email.setError("Fill in your Email!");
+                return;
             }else if (password.getText().toString().trim().isEmpty()) {
                 password.setError("Fill in your password!");
+                return;
             }
             //Show progressbar
             progressBar.setVisibility(View.VISIBLE);
