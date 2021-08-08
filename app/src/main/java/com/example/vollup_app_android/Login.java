@@ -1,5 +1,6 @@
 package com.example.vollup_app_android;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -12,7 +13,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -25,8 +33,9 @@ public class Login extends AppCompatActivity {
     ProgressBar progressBar;
     TextView register;
     Button login;
+    FirebaseAuth fAuth;
     private long mLastClickTime = 0;
-    String mail, pass, id;
+    String mail, pass;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +51,9 @@ public class Login extends AppCompatActivity {
 
         //Hide the progressBar
         progressBar.setVisibility(View.INVISIBLE);
+
+        //get firebase authentication path.
+        fAuth = FirebaseAuth.getInstance();
 
         register.setOnClickListener(view -> {
             //setting double click blocking code
@@ -59,9 +71,41 @@ public class Login extends AppCompatActivity {
                 return;
             }
             mLastClickTime = SystemClock.elapsedRealtime();
-            //go to register Main activity
-            SessionManagement sessionManagement = new SessionManagement(Login.this);
-            sessionManagement.saveSession(id);
+
+            //Defining login conditions.
+            if (email.getText().toString().trim().isEmpty()) {
+                email.setError("Fill in your Email!");
+            }else if (password.getText().toString().trim().isEmpty()) {
+                password.setError("Fill in your password!");
+            }
+            //Show progressbar
+            progressBar.setVisibility(View.VISIBLE);
+
+            //adding mail and password to variables.
+            mail = email.getText().toString().trim();
+            pass = password.getText().toString().trim();
+
+            //block login button
+            login.setEnabled (false);
+            //Manage authentication Login
+            fAuth.signInWithEmailAndPassword(mail,pass).addOnCompleteListener(task -> {
+                if(task.isSuccessful()){
+                    progressBar.setVisibility(View.INVISIBLE);
+                    Toast.makeText(getApplicationContext(), "Login sucessfully!", Toast.LENGTH_LONG).show();
+                    FirebaseUser User = FirebaseAuth.getInstance().getCurrentUser();
+                    assert User != null;
+                    //Manage authentication Session
+                    SessionManagement sessionManagement = new SessionManagement(Login.this);
+                    sessionManagement.saveSession(User.getUid());
+                    moveToMainActivity();
+                }else{
+                    login.setEnabled (true);
+                    progressBar.setVisibility(View.INVISIBLE);
+                    Toast.makeText(getApplicationContext(), "Login sucessfully!", Toast.LENGTH_LONG).show();
+                }
+            });
+
+
         });
     }
 
