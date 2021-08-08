@@ -62,8 +62,34 @@ This is the resulted layout:
 This is the resulted layout:
 
 ## Firebase
-There are many features in the ```Firebase``` platforma that allows to develop quickly several cloud functionalities.
+There are many features in the ```Firebase``` platform that allows to develop quickly several cloud functionalities.
 In our case, we are goint to use ***Firebase Authentication*** to manage the login and register system.
 And ***Firebase Realtime Database*** to store and sync data with this cloud-hosted NoSQL database. Data is synced across all clients in realtime and remains available when the app goes offline.
-(![Image](firebase.png?raw=true))
+![Image](firebase.png?raw=true)
 
+## Back-End
+
+### Register
+Durign it's programming we are going to:
+1. Define the layout element variables.
+2. Program the Inputs to receive the right formatted data.
+3. Set up ***Firebase Authentication***
+4. Set up ***Firebase Realtime Database*** to receive user data.
+
+### Login
+Durign it's programming we are going to:
+1. Define the layout element variables.
+2. Program the Inputs to receive the right formatted data.
+3. Authenticate user with ***Firebase Authentication***.
+4. Set up and manage a log in and log out session. 
+5. With ```Shared Preferences``` set up a persistant session, to keep logged even after closing app.
+
+### Page
+Durign it's programming we are going to:
+1. Define the layout element variables.
+2. Program the Inputs to receive the right formatted data.
+3. Get and display data from ***Firebase Realtime Database***.
+
+## Congratulations
+following these steps I developed a basic system app. It was a great experience and surely helped with my Android Development skills.
+It was a great honor !
