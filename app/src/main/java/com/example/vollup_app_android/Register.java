@@ -44,7 +44,7 @@ public class Register extends AppCompatActivity {
     TextView login;
     private long mLastClickTime = 0;
     String nick, mail, pass, bal, userId;
-    Long num;
+    double num;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -111,12 +111,7 @@ public class Register extends AppCompatActivity {
             nick = name.getText().toString().trim();
             mail = email.getText().toString().trim();
             pass = password.getText().toString().trim();
-            num = Long.parseLong(balance.getText().toString().replace(".", ""));
-            if(balance.getText().toString().contains(".")) {
-                num = num / 100;
-            }
-            DecimalFormat format = new DecimalFormat("###,###,###.##");
-            bal = format.format(num);
+            bal = formatDecimal(balance.getText().toString());
 
             //Defining register conditions.
             if (name.getText().toString().trim().isEmpty()) {
@@ -146,7 +141,10 @@ public class Register extends AppCompatActivity {
                     firebase.put("balance",bal);
                     reff.setValue(firebase).addOnCompleteListener(task1 -> {
                         Toast.makeText(getApplicationContext(), "User created successfully!", Toast.LENGTH_LONG).show();
-                        finish();
+                        //Manage authentication Session
+                        SessionManagement sessionManagement = new SessionManagement(Register.this);
+                        sessionManagement.saveSession(userId);
+                        moveToMainActivity();
                     }).addOnFailureListener(e -> {
                         Toast.makeText(getApplicationContext(), "Failure to create User!", Toast.LENGTH_LONG).show();
                         progressBar.setVisibility(View.INVISIBLE);
@@ -160,5 +158,24 @@ public class Register extends AppCompatActivity {
                 }
             });
         });
+    }
+
+    private String formatDecimal(String number){
+        if(!number.contains(".")){
+            DecimalFormat format = new DecimalFormat("###,###,###.00");
+            return format.format(Long.parseLong(number));
+        }else{
+            int decimal = number.length()-number.indexOf(".")-1;
+            num = Double.parseDouble(number.replace(".", ""));
+            num = num/Math.pow(10,decimal);
+            DecimalFormat format = new DecimalFormat("###,###,###.00");
+            return format.format(num);
+        }
+    }
+
+    private void moveToMainActivity() {
+        Intent intent = new Intent(Register.this, MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
     }
 }
