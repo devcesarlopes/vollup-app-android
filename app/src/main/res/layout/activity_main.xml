@@ -89,25 +89,20 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/body"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight=".5"
-            android:orientation="vertical"
-            android:background="@color/white"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.484"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/head">
 
             <GridLayout
                 android:id="@+id/GridLayout1"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight=".5"
                 android:columnCount="2"
                 android:rowCount="2"
-                android:orientation="vertical" >
+                android:orientation="vertical"
+                android:background="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.484"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/head">
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_marginStart="30dp"
                     android:layout_column="0"
@@ -115,6 +110,43 @@
                     android:layout_columnWeight="1"
                     android:layout_rowWeight="1" >
 
+                    <ImageView
+                        android:id="@+id/TOP_START"
+                        android:layout_width="84dp"
+                        android:layout_height="64dp"
+                        android:src="@drawable/top_left"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.128"
+                        app:layout_constraintVertical_bias=".5"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:contentDescription="@string/description" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/top_left"
+                        android:textColor="@color/dark_blue"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0"
+                        app:layout_constraintStart_toStartOf="@+id/TOP_START"
+                        app:layout_constraintTop_toBottomOf="@+id/TOP_START"
+                        app:layout_constraintVertical_bias="0" />
+
+                    <View
+                        android:layout_width="50dp"
+                        android:layout_height="15dp"
+                        android:background="@color/neon_green"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="1"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.2" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
@@ -123,7 +155,43 @@
                     android:layout_row="0"
                     android:layout_columnWeight="1"
                     android:layout_rowWeight="1">
+                    <ImageView
+                        android:id="@+id/TOP_END"
+                        android:layout_width="84dp"
+                        android:layout_height="64dp"
+                        android:src="@drawable/top_right"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.128"
+                        app:layout_constraintVertical_bias=".5"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:contentDescription="@string/description"/>
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/top_right"
+                        android:textColor="@color/dark_blue"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0"
+                        app:layout_constraintStart_toStartOf="@+id/TOP_END"
+                        app:layout_constraintTop_toBottomOf="@+id/TOP_END"
+                        app:layout_constraintVertical_bias="0" />
+
+                    <View
+                        android:layout_width="50dp"
+                        android:layout_height="15dp"
+                        android:background="@color/neon_green"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="1"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.2" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
@@ -132,7 +200,43 @@
                     android:layout_row="1"
                     android:layout_columnWeight="1"
                     android:layout_rowWeight="1">
+                    <ImageView
+                        android:id="@+id/BOTTOM_START"
+                        android:layout_width="54dp"
+                        android:layout_height="64dp"
+                        android:src="@drawable/bottom_left"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.128"
+                        app:layout_constraintVertical_bias=".2"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:contentDescription="@string/description"/>
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/bottom_left"
+                        android:textColor="@color/dark_blue"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0"
+                        app:layout_constraintStart_toStartOf="@+id/BOTTOM_START"
+                        app:layout_constraintTop_toBottomOf="@+id/BOTTOM_START"
+                        app:layout_constraintVertical_bias="0" />
+
+                    <View
+                        android:layout_width="50dp"
+                        android:layout_height="15dp"
+                        android:background="@color/neon_green"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="1"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.2" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
@@ -141,11 +245,45 @@
                     android:layout_row="1"
                     android:layout_columnWeight="1"
                     android:layout_rowWeight="1" >
-                    
+                    <ImageView
+                        android:id="@+id/BOTTOM_END"
+                        android:layout_width="54dp"
+                        android:layout_height="64dp"
+                        android:src="@drawable/bottom_left"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.128"
+                        app:layout_constraintVertical_bias=".2"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:contentDescription="@string/description"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/bottom_right"
+                        android:textColor="@color/dark_blue"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0"
+                        app:layout_constraintStart_toStartOf="@+id/BOTTOM_END"
+                        app:layout_constraintTop_toBottomOf="@+id/BOTTOM_END"
+                        app:layout_constraintVertical_bias="0" />
+
+                    <View
+                        android:layout_width="50dp"
+                        android:layout_height="15dp"
+                        android:background="@color/neon_green"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="1"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.2" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </GridLayout>
-
-        </LinearLayout>
 
         <LinearLayout
             android:id="@+id/bottom"
@@ -190,7 +328,7 @@
         </androidx.cardview.widget.CardView>
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/y_logo"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_gravity="center_horizontal"
@@ -201,6 +339,32 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.92" />
+
+        <ImageView
+            android:id="@+id/profile"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:contentDescription="@string/description"
+            android:src="@drawable/profile_icon"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/y_logo"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias=".96" />
+
+        <ImageView
+            android:id="@+id/menu"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:contentDescription="@string/description"
+            android:src="@drawable/menu_icon"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/y_logo"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias=".96" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
