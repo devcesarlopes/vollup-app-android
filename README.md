@@ -55,12 +55,15 @@ With that in mind, the work-flow is going to be:
 
 ### Login
 This is the resulted layout:
+![Image](login.png?raw=true)
 
 ### Register
 This is the resulted layout:
+![Image](register.png?raw=true)
 
 ### Page
 This is the resulted layout:
+![Image](page.png?raw=true)
 
 ## Firebase
 There are many features in the ```Firebase``` platform that allows to develop quickly several cloud functionalities.

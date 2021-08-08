@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
         if(User != null) {
             id = User.getUid();
         }
-        
+
         menu.setOnClickListener(view -> {
             //Defining double click blocking code
             if (SystemClock.elapsedRealtime() - mLastClickTime < 1000) {
