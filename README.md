@@ -37,13 +37,13 @@ I personally prefer always start from front-end. From my experience during my wo
 - It's easier to view all the app's functionalities and promote changes.
 - It's easier to reuse variables and structure the back-end with proper efficency.
 
-In this project we already have the app design that contains 2 screens, ```login``` and ```page```.
+In this project we already have the app design that contains 3 screens, ```login```, ```register account``` and ```page```.
 
 With that in mind, the work-flow is going to be:
-1. login front-end
+1. login and register front-end
 2. page front-end
 3. Install Firebase and it's features to the project.
-4. login back-end
+4. login and register back-end
 5. page back-end
 6. Testing
 
