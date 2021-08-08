@@ -42,7 +42,7 @@ In this project we already have the app design that contains 3 screens, ```login
 With that in mind, the work-flow is going to be:
 
 1. front-end (login, register and page)
-2. Install Firebase and it's features to the project.
+2. Install ```Firebase``` and it's features to the project.
 3. back-end
 4. Testing
 
@@ -50,7 +50,20 @@ With that in mind, the work-flow is going to be:
 - During front creation, it's important to keep in mind that there are many different phones, with different sizes, so it's really important to make a responsible layout. Nothing worse than floating elements to spoil the user experience.
 - Make sure that everything the design has requested is in the layout.
 - Make sure everything is in place.
-- Avoid using absolute meajures, it's much more cleaner to use Relative Layouts.
+- Avoid using absolute meajures, it's much more cleaner to use ```Relative Layouts```.
 
 ### Login
 This is the resulted layout:
+
+### Register
+This is the resulted layout:
+
+### Page
+This is the resulted layout:
+
+## Firebase
+There are many features in the ```Firebase``` platforma that allows to develop quickly several cloud functionalities.
+In our case, we are goint to use ***Firebase Authentication*** to manage the login and register system.
+And ***Firebase Realtime Database*** to store and sync data with this cloud-hosted NoSQL database. Data is synced across all clients in realtime and remains available when the app goes offline.
+(![Image](firebase.png?raw=true))
+

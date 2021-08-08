@@ -153,7 +153,7 @@ public class Register extends AppCompatActivity {
                         register.setEnabled (true);
                     });
                 }else{
-                    //Caso ocorra erro ao criar usuário
+                    //In case creatig user go wrong.
                     Toast.makeText(getApplicationContext(), "Error!" + Objects.requireNonNull(task.getException()).toString(), Toast.LENGTH_SHORT).show();
                     progressBar.setVisibility(View.INVISIBLE);
                     register.setEnabled (true);
