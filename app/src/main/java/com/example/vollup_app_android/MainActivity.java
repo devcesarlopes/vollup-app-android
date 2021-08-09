@@ -3,6 +3,8 @@ package com.example.vollup_app_android;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.SystemClock;
@@ -41,6 +43,15 @@ public class MainActivity extends AppCompatActivity {
         name = findViewById(R.id.name);
         balance = findViewById(R.id.saldo);
         progressBar = findViewById(R.id.progressBar);
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Instruções");
+        builder.setMessage("Olá, bem vindo ao Sistema da Brydge.\nÉ possível visualizar o Saldo e o Nome do usuário.\nPara fazer o Log Out, pressine o botão Menu na parte inferior da tela.");
+        builder.setPositiveButton("Ok", (dialog, which) -> {
+        });
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
 
         //Get firebaseAuthentication and current user id.
         FirebaseUser User = FirebaseAuth.getInstance().getCurrentUser();
