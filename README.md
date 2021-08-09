@@ -45,9 +45,9 @@ With that in mind, the work-flow is going to be:
 2. Install ```Firebase``` and it's features to the project.
 3. back-end
 4. Testing
-5. Insert app in Google Play.
+5. Insert app in Google Play (It was not requested in the job description).
 
-## Front End.
+## 1. Front End.
 - During front creation, it's important to keep in mind that there are many different phones, with different sizes, so it's really important to make a responsible layout. Nothing worse than floating elements to spoil the user experience.
 - Make sure that everything the design has requested is in the layout.
 - Make sure everything is in place.
@@ -61,13 +61,13 @@ This is the resulted layout:
 <img src="page.png" alt="Your image title" height="400"/>
 </p>
 
-## Firebase
+## 2. Firebase
 There are many features in the ```Firebase``` platform that allows to develop quickly several cloud functionalities.
 In our case, we are goint to use ***Firebase Authentication*** to manage the login and register system.
 And ***Firebase Realtime Database*** to store and sync data with this cloud-hosted NoSQL database. Data is synced across all clients in realtime and remains available when the app goes offline.
 ![Image](firebase.png?raw=true)
 
-## Back-End
+## 3. Back-End
 
 ### Register
 Durign it's programming we are going to:
@@ -89,6 +89,11 @@ Durign it's programming we are going to:
 1. Define the layout element variables.
 2. Program the Inputs to receive the right formatted data.
 3. Get and display data from ***Firebase Realtime Database***.
+
+## 4. Testing
+1. In the [Android Studio](https://developer.android.com/studio?hl=pt&gclid=CjwKCAjw3riIBhAwEiwAzD3TiWGMLwJfHW4meMvGt4mY-y4UFzd1YzDHvJ6nReMEw04JFntq2vSJ0BoCyfgQAvD_BwE&gclsrc=aw.ds) it's possible to visualize a preview from the front-end. It's possible to visualize the preview in different screen sizes, with that in mind it is important to check if the front end is good in all of them.
+2. It's possible to simulate the app in an vitual device. It must be installed, and it works just like a regular phone.
+3. It's possible to install the app directly in a real device connecting on USB.
 
 ## Congratulations
 Following these steps I developed a basic system app. It was a great experience and surely helped with my Android Development skills.
