@@ -53,17 +53,13 @@ With that in mind, the work-flow is going to be:
 - Make sure everything is in place.
 - Avoid using absolute meajures, it's much more cleaner to use ```Relative Layouts```.
 
-### Login
 This is the resulted layout:
-![Image](login.png?raw=true)
-
-### Register
-This is the resulted layout:
-![Image](register.png?raw=true)
-
-### Page
-This is the resulted layout:
-![Image](page.png?raw=true)
+</br>
+<p align="center">
+<img src="login.png" alt="Your image title" height="550"/>
+<img src="register.png" alt="Your image title" height="550"/>
+<img src="page.png" alt="Your image title" height="550"/>
+</p>
 
 ## Firebase
 There are many features in the ```Firebase``` platform that allows to develop quickly several cloud functionalities.
