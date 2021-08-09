@@ -56,9 +56,9 @@ With that in mind, the work-flow is going to be:
 This is the resulted layout:
 </br>
 <p align="center">
-<img src="login.png" alt="Your image title" height="500"/>
-<img src="register.png" alt="Your image title" height="500"/>
-<img src="page.png" alt="Your image title" height="500"/>
+<img src="login.png" alt="Your image title" height="300"/>
+<img src="register.png" alt="Your image title" height="300"/>
+<img src="page.png" alt="Your image title" height="300"/>
 </p>
 
 ## Firebase
