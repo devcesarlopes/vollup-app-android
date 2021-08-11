@@ -91,7 +91,7 @@ Durign it's programming we are going to:
 3. Get and display data from ***Firebase Realtime Database***.
 
 ## 4. Testing
-1. In the [Android Studio](https://developer.android.com/studio?hl=pt&gclid=CjwKCAjw3riIBhAwEiwAzD3TiWGMLwJfHW4meMvGt4mY-y4UFzd1YzDHvJ6nReMEw04JFntq2vSJ0BoCyfgQAvD_BwE&gclsrc=aw.ds) it's possible to visualize a preview from the front-end. It's possible to visualize the preview in different screen sizes, with that in mind it is important to check if the front end is good in all of them.
+1. In the [Android Studio](https://developer.android.com/studio?hl=pt&gclid=CjwKCAjw3riIBhAwEiwAzD3TiWGMLwJfHW4meMvGt4mY-y4UFzd1YzDHvJ6nReMEw04JFntq2vSJ0BoCyfgQAvD_BwE&gclsrc=aw.ds) IDE it's possible to visualize a preview from the front-end. It's possible to visualize the preview in different screen sizes, with that in mind it is important to check if the front end is good in all of them.
 2. It's possible to simulate the app in an vitual device. It must be installed, and it works just like a regular phone.
 3. It's possible to install the app directly in a real device connecting on USB.
 

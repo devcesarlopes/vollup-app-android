@@ -17,5 +17,8 @@
     <string name="bottom_left">Histórico\nde Pagamentos</string>
     <string name="bottom_right">Fazer\ntransferência</string>
     <string name="firebaseUrl">https://vollup-app-android-default-rtdb.firebaseio.com/</string>
+    <string name="nome_completo">Nome Completo</string>
+    <string name="registrar">Registrar</string>
+    <string name="login_text">Já possui conta? Faça o Login.</string>
 
 </resources>
