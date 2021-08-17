@@ -95,6 +95,9 @@ Durign it's programming we are going to:
 2. It's possible to simulate the app in an vitual device. It must be installed, and it works just like a regular phone.
 3. It's possible to install the app directly in a real device connecting on USB.
 
+## Download
+It's possible to download the app APK in the following [link](https://we.tl/t-PzhHse4oJ4)
+
 ## Congratulations
 Following these steps I developed a basic system app. It was a great experience and surely helped with my Android Development skills.
 It was a great honor !
